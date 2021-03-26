@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<div class='container'>
+    <h1>ESP32 Temperature Dashboard</h1>
+    <div class="columns">
+        <div class="column col-6 col-lg col-mx-auto">
+            <div class="parallax">
+                <div class="parallax-top-left" tabindex="1"></div>
+                <div class="parallax-top-right" tabindex="2"></div>
+                <div class="parallax-bottom-left" tabindex="3"></div>
+                <div class="parallax-bottom-right" tabindex="4"></div>
+                <div class="parallax-content">
+                    <div class="parallax-front">
+                        <h2>ESP32</h2>
+                    </div>
+                    <div class="parallax-back">
+                        <img src="{{ url_for('static', filename='PARAL.png') }}" class="img-responsive rounded" ...>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column col-9 col-mx-auto">
+            <h3>Timeline</h3>
+          <div class="timeline">
+            <div class="timeline-item" id="timeline-example-1">
+              <div class="timeline-left"><a class="timeline-icon tooltip" href="#" data-tooltip="25 Jan 2021"></a></div>
+              <div class="timeline-content">
+                <div class="tile">
+                  <div class="tile-content">
+                    <p class="tile-subtitle">25 Jan 2021</p>
+                    <p class="tile-title">Ordered the IOT-kit</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item" id="timeline-example-2">
+              <div class="timeline-left"><a class="timeline-icon icon-lg tooltip" href="#timeline-example-2" data-tooltip="4 Feb 2021"><i class="icon icon-check"></i></a></div>
+              <div class="timeline-content">
+                <div class="tile">
+                  <div class="tile-content">
+                    <p class="tile-subtitle">4 Feb 2021</p>
+                    <p class="tile-title">Order delivered</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item" id="timeline-example-3">
+              <div class="timeline-left"><a class="timeline-icon icon-lg tooltip" href="#timeline-example-3" data-tooltip="18 Feb 2021"><i class="icon icon-check"></i></a></div>
+              <div class="timeline-content">
+                <div class="tile">
+                  <div class="tile-content">
+                    <p class="tile-subtitle">18 Feb 2021</p>
+                    <p class="tile-title">Workshop 2</p>
+                    <p class="tile-title">Flashed the first files onto ESP32 dev. board with <a href="jetbrains.com/pycharm">PyCharm</a></p>
+                    <p class="tile-title">Started trying to get it to work</p>
+                </div>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-left"><a class="timeline-icon icon-lg tooltip" href="#timeline-example-2" data-tooltip="22 Feb 2021"><i class="icon icon-check"></i></a></div>
+                <div class="timeline-content">
+                  <div class="tile">
+                    <div class="tile-content">
+                      <p class="tile-subtitle">22 Feb 2021</p>
+                      <p class="tile-title">Switched over to PyMakr in Visual Studio Code using <a href="https://github.com/HanzeA1/IOT-ESP32-Workspace">this repo, made by fellow students</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-left"><a class="timeline-icon icon-lg tooltip" href="#timeline-example-2" data-tooltip="24 Feb 2021"><i class="icon icon-check"></i></a></div>
+                <div class="timeline-content">
+                  <div class="tile">
+                    <div class="tile-content">
+                      <p class="tile-subtitle">24 Feb 2021</p>
+                      <p class="tile-title">Finally got the temperature sensor to work.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-left"><a class="timeline-icon icon-lg tooltip" href="#timeline-example-2" data-tooltip="25 Feb 2021"><i class="icon icon-check"></i></a></div>
+                <div class="timeline-content">
+                  <div class="tile">
+                    <div class="tile-content">
+                      <p class="tile-subtitle">25 Feb 2021</p>
+                      <p class="tile-title">Initialized this repository.</p>
+                      <p class="tile-title">Initial commit</p>
+                      <p class="tile-title">Started working on a flask implementation to view data</p>
+                    </div>
+                  </div>
+                  <div class="tile-action">
+                    <button class="btn" onclick='window.location.href = "https://github.com/emsquellen/IOT-ESP32-Workspace";'>View</button>
+                  </div>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-left"><a class="timeline-icon icon-lg tooltip" href="#timeline-example-2" data-tooltip="26 Feb 2021"><i class="icon icon-check"></i></a></div>
+                <div class="timeline-content">
+                  <div class="tile">
+                    <div class="tile-content">
+                      <p class="tile-subtitle">26 Feb 2021</p>
+                      <p class="tile-title">No more bootstrap.</p>
+                    </div>
+                  </div>
+                  <div class="tile-action">
+                    <button class="btn" onclick='window.location.href = "https://github.com/emsquellen/IOT-ESP32-Workspace";'>View</button>
+                  </div>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-left"><a class="timeline-icon icon-lg tooltip" href="#timeline-example-2" data-tooltip="26 Feb 2021"><i class="icon icon-check"></i></a></div>
+                <div class="timeline-content">
+                  <div class="tile">
+                    <div class="tile-content">
+                      <p class="tile-subtitle">27 Feb 2021</p>
+                      <p class="tile-title">Added chart using <a href="https://www.chartjs.org/">Chart.JS.</a></p>
+                    </div>
+                  </div>
+                  <div class="tile-action">
+                    <button class="btn" onclick='window.location.href = "https://github.com/emsquellen/IOT-ESP32-Workspace";'>View</button>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>ESP32 Temperature chart of today <small class="label">Chart.js</small></h1>
+{% endblock %}
+
+{% block content %}
+<div class='container'>
+    <div class="columns">
+        <div class="column col-6 col-mx-auto">
+            <canvas id="tempChart" width="1000" height="500"></canvas>
+            <script>
+              var ctx = document.getElementById("tempChart").getContext('2d');
+              var myChart = new Chart(ctx, {
+                  type: 'line',
+                  data: {
+                      labels: {{ labels }},
+                      datasets: [{
+                          label: 'Temperature',
+                          data: {{ graphdata }},
+                          fill: false,
+                          borderColor: '#5755d9',
+                          backgroundColor: '#5755d9',
+                          borderWidth: 1
+                      }]},
+                  options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                  }
+              });
+
+            </script>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>ESP32 Temperature data <small class="label">sqlite3</small></h1>
+{% endblock %}
+
+{% block content %}
+<div class='container'>
+    <div class="columns">
+        <div class="column col-6 col-mx-auto">
+            <h4>Last measured temperature is {{ currtemp }}°C.</h4>
+            <div class="tooltip" data-tooltip="Ideal temprature is between 20-25°C.">
+            <meter class="meter" value="{{ currtemp }}" optimum="21" min="0" max="100" low="20" high="25"></meter>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Temperature</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for time, temp in temp_list %}
+                    <tr>
+                        <td>{{ time }}</td>
+                        <td>{{ temp }}°C</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

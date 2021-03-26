@@ -1,0 +1,71 @@
+<div class="columns">
+    <div class="column col-6 col-xs-12">
+        <div class="modal modal-sm" id='settingsMenu'><a class="modal-overlay"
+                onclick='(function() {document.getElementById("settingsMenu").classList.remove("active");})();'
+                aria-label="Close"></a>
+            <div class="modal-container" role="document">
+                <div class="modal-header"><a class="btn btn-clear float-right"
+                        onclick='(function() {document.getElementById("settingsMenu").classList.remove("active");})();'
+                        aria-label="Close"></a>
+                    <div class="modal-title h5">Settings</div>
+                </div>
+                <div class="modal-body">
+                    <div class="content">
+                        <form>
+                            <label class="form-switch">
+                                <input id="modet" name="checkbox" type="checkbox" checked="">
+                                <i class="form-icon"></i>Light mode
+                            </label>
+                            <div class="divider text-center" data-content="UNITS"></div>
+                            <div class="form-group">
+                                <label class="form-label">Unit</label>
+                                <label class="form-radio">
+                                    <input type="radio" name="temp" checked=""><i class="form-icon"></i>Celcius
+                                </label>
+                                <label class="form-radio">
+                                    <input type="radio" name="temp" disabled><i class="form-icon"></i>Farenheit
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary">Apply</button><a class="btn btn-link"
+                        onclick='(function() {document.getElementById("settingsMenu").classList.remove("active");})()'
+                        aria-label="Close">Close</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="columns">
+    <div class="column col-6 col-xs-12">
+        <div class="modal" id='modalPopUp'><a class="modal-overlay"
+                onclick='(function() {document.getElementById("modalPopUp").classList.remove("active");})();'
+                aria-label="Close"></a>
+            <div class="modal-container" role="document">
+                <div class="modal-header"><a class="btn btn-clear float-right"
+                        onclick='(function() {document.getElementById("modalPopUp").classList.remove("active");})();'
+                        aria-label="Close"></a>
+                    <div class="modal-title h2">Welcome to my ESP32 development board dashboard.</div>
+                </div>
+                <div class="modal-body">
+                    <div class="content">
+                        <span>
+                            This dashboard is connected though a flask-server with the <code>SQLite</code> database the
+                            server fetches temperature data from. It is automatically fetched once every 5 minutes but
+                            intervals might change.
+                        </span>
+                        <div class="divider"></div>
+                        <img class="img-responsive" src="{{ url_for('static', filename='CIRCUIT.png') }}">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-link"
+                        onclick='(function() {document.getElementById("modalPopUp").classList.remove("active");})()'
+                        aria-label="Close">Close</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
