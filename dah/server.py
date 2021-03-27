@@ -5,6 +5,10 @@ import os
 import socket
 from dah import app
 
+abspath = os.path.abspath(__file__)
+dname = os.path.dirname(abspath)
+os.chdir(dname)
+
 led = False
 
 @app.route('/led')
@@ -33,7 +37,11 @@ def get_temperature():
                 print("Received data: ", message)
                 if not data:
                     break
-
+                db = sqlite3.connect("temp.db", detect_types=sqlite3.PARSE_DECLTYPES)
+                cursor_db = db.cursor()
+                cursor_db.execute(f"INSERT INTO data VALUES ('{time.ctime()}', {int(message)});")
+                db.commit()
+                db.close()
                 if not led:
                     if int(data) <= 21:
                         conn.send(ALLOKA.encode("utf-8"))
