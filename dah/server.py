@@ -3,7 +3,7 @@ import time
 import sqlite3
 import os
 import socket
-from . import app
+from dah import app
 
 led = False
 
