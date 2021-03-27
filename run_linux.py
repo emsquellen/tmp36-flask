@@ -5,7 +5,8 @@ import gunicorn.app.base
 import dah
 
 def number_of_workers():
-    """ 
+    """
+    Return amount of needed workers
     """
     return 4
 

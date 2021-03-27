@@ -23,7 +23,5 @@ def run():
     web = Thread(target=app.run)
     record.start()
     web.start()
-    
-
 if __name__ == "__main__":
     run()
