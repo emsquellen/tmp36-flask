@@ -1,3 +1,10 @@
+$(function () {
+    $("#ledbutton").click(function (event) {
+        $.getJSON('/led', {},
+            function (data) { }); return false;
+    });
+});
+
 window.onload = loadStyleSheet;
 
 function loadStyleSheet() {
@@ -11,9 +18,9 @@ function setDarkMode() {
 
     document.cookie = "darkmode=true";
     document.getElementById("modet").removeAttribute("checked");
-    document.getElementById("mode").setAttribute('href', "{{ url_for('static', filename='spectre.min.css') }}");
-    document.getElementById("mode2").setAttribute('href', "{{ url_for('static', filename='spectre-exp.min.css') }}");
-    document.getElementById("mode3").setAttribute('href', "{{ url_for('static', filename='spectre-icons.min.css') }}");
+    document.getElementById("mode").setAttribute('href', "{{ url_for('static', filename='css/spectre.min.css') }}");
+    document.getElementById("mode2").setAttribute('href', "{{ url_for('static', filename='css/spectre-exp.min.css') }}");
+    document.getElementById("mode3").setAttribute('href', "{{ url_for('static', filename='css/spectre-icons.min.css') }}");
 }
 function setLightMode() {
     document.getElementById("modet").setAttribute('checked', "")
