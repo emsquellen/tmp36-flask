@@ -1,8 +1,7 @@
 import multiprocessing
-
 import gunicorn.app.base
-
 import dah
+import os
 
 def number_of_workers():
     """
@@ -41,6 +40,10 @@ class StandaloneApplication(gunicorn.app.base.BaseApplication):
 
 
 if __name__ == '__main__':
+    abspath = os.path.abspath(__file__)
+    dname = os.path.dirname(abspath)
+    os.chdir(dname)
+
     options = {
         'bind': '%s:%s' % ('127.0.0.1', '8080'),
         'workers': number_of_workers(),
