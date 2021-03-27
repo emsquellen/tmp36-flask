@@ -4,6 +4,25 @@ import sqlite3
 import os
 import socket
 from dah import app
+from sys import exit
+import configparser
+config = configparser.ConfigParser()
+config.read('config.ini')
+ip = config['Settings']['ip address']
+
+import ipaddress
+try:
+    addr = ipaddress.IPv4Address(ip)
+except ValueError:
+    print('IP address invalid.')
+    exit(-1)
+if addr.is_global:
+    print('IP address invalid.')
+    exit(-1)
+elif addr.is_private:
+    pass
+
+
 
 led = False
 
@@ -13,7 +32,7 @@ def led():
     led = False if led else True
 
 def get_temperature():
-    HOST = "192.168.178.10"
+    HOST = ip
     PORT = 4000
     ALLOKA = "OK_A"
     ALLOKB = "OK_B"
@@ -36,7 +55,12 @@ def get_temperature():
                 print("Received data: ", message)
                 if not data:
                     break
-                cursor_db.execute(f"INSERT INTO data VALUES ('{time.ctime()}', {int(message)});")
+                try:
+                    cursor_db.execute(f"INSERT INTO data VALUES ('{time.ctime()}', {int(message)});")
+                except sqlite3.OperationalError:
+                    print("\n\n DATABASE DOES NOT EXIST. MADE ONE INSTEAD. \n\n")
+                    cursor_db.execute('CREATE TABLE "data" (date TEXT NOT NULL,temp INTEGER NOT NULL);')
+                    cursor_db.execute(f"INSERT INTO data VALUES ('{time.ctime()}', {int(message)});")
                 db.commit()
                 if not led:
                     if int(data) <= 21:

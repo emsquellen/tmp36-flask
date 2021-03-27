@@ -8,10 +8,12 @@
 <div class='container'>
     <div class="columns">
         <div class="column col-6 col-mx-auto">
+            {% if currtemp %}
             <h4>Last measured temperature is {{ currtemp }}°C.</h4>
             <div class="tooltip" data-tooltip="Ideal temprature is between 20-25°C.">
             <meter class="meter" value="{{ currtemp }}" optimum="21" min="0" max="100" low="20" high="25"></meter>
             </div>
+            {% endif %}
             <table class="table">
                 <thead>
                     <tr>

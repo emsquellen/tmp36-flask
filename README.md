@@ -3,7 +3,7 @@
 
 ## How to use?
 
-> Setup:
+### Setup:
 
 ```bat
 mkdir flask-tmp36
@@ -20,8 +20,12 @@ pip install -r requirements.txt
 
 ```
 
-> Run:
+Don't forget to change the IP in `config.ini` to your IP address!
+
+### Run:
 
 `py run.py`
 
-For usage with gunicorn/linux you can do `sh run_linux.sh`.
+
+#### Gunicorn
+For usage with gunicorn/linux, firstly move all the files from `.linux` to the parent directory, then you can do `sh run_linux.sh`.
