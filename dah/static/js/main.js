@@ -1,9 +1,7 @@
-$(function () {
-    $("#ledbutton").click(function (event) {
-        $.getJSON('/led', {},
-            function (data) { }); return false;
-    });
-});
+document.addEventListener("DOMContentLoaded", () => {
+    let led = document.getElementById('ledbutton')
+    led.addEventListener('click', () => fetch('/led'))
+})
 
 window.onload = loadStyleSheet;
 
