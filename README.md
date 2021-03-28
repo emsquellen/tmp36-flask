@@ -8,6 +8,8 @@
 ```bat
 mkdir flask-tmp36
 
+cd flask-tmp36
+
 git clone https://github.com/emsquellen/tmp36-flask.git
 
 cd tmp36-flask
